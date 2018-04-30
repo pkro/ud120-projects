@@ -32,7 +32,12 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 
 
+from sklearn import svm
+#import matplotlib.pyplot as plt
 
+
+clf = svm.SVC(kernel="rbf", C=500.0, gamma=1.0)
+clf.fit(features_train, labels_train)
 
 
 

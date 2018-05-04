@@ -20,6 +20,35 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 
+from sklearn.tree import DecisionTreeClassifier
+clf = DecisionTreeClassifier(min_samples_split=40)
+
+t0 = time()
+clf.fit(features_train, labels_train)
+print "training time: {}s".format(time() - t0)
+
+from time import time
+
+t0 = time()
+pred = clf.predict(features_test)
+print "prediction time: {}s".format(time() - t0)
+
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(pred, labels_test)
+
+print "accuracy: {}".format(acc)
+
+'''
+min_samples_split=40, full set, all features:
+training time: 103.780999899s
+prediction time: 0.0320000648499s
+accuracy: 0.978953356086
+
+min_samples_split=40, full set, 10% of features:
+training time: 7.43700003624s
+prediction time: 0.0s
+accuracy: 0.967007963595
+'''
 
 
 #########################################################

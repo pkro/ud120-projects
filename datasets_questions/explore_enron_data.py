@@ -16,7 +16,16 @@
 """
 
 import pickle
+import pprint as pprint
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
+#pprint.pprint(enron_data)
+
+cnt = 0
+for e in enron_data:
+    if enron_data[e]['poi'] == 1:
+        cnt+=1
+
+print cnt
 
 

@@ -80,6 +80,10 @@ except NameError:
 reg.fit(feature_test, target_test)
 plt.plot(feature_train, reg.predict(feature_train), color="b") 
 
+print('''Slope: {}\n
+      Intercept: {}\n'''.format( reg.coef_, 
+                                              reg.intercept_))
+
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
